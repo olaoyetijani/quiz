@@ -24,7 +24,9 @@ function App() {
   const [userAnswers, setUserAnswers] = useState<AnswerObject[] | any[]>([]);
   const [score, setScore] = useState<number>(0);
   const [complete, setComplete] = useState<boolean>(false);
-  const [difficulty, setDifficulty] = useState(Difficulty.EASY);
+  const [difficulty, setDifficulty] = useState<Difficulty | any>(
+    Difficulty.EASY
+  );
 
   // Start a new quiz
   const startQuiz = async () => {
@@ -38,7 +40,7 @@ function App() {
     setGameOver(false);
   };
 
-  // check for correct answers and update score 
+  // check for correct answers and update score
   const checkAnswers = (e: MouseEvent<HTMLButtonElement>) => {
     if (!gameOver) {
       const answer = e.currentTarget.value;
@@ -88,7 +90,7 @@ function App() {
               Start Quiz
             </button>
           </>
-        ) : null }
+        ) : null}
 
         {!gameOver ? <p className="score">score: {score}</p> : null}
         {loading ? <img className="loader" src={loader} alt="loading" /> : null}
