@@ -44,7 +44,7 @@ function App() {
   const checkAnswers = (e: MouseEvent<HTMLButtonElement>) => {
     if (!gameOver) {
       const answer = e.currentTarget.value;
-      const correct = (questions[number].correct_answer = answer);
+      const correct = questions[number].correct_answer === answer;
       if (correct) setScore((prev) => prev + 1);
       const answerObject = {
         question: questions[number].question,
